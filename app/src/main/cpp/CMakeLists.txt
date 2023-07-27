@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.22.1)
 project("android_opencv_mobile")
 
 set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv-mobile-4.6.0-android/sdk/native/jni)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED core imgproc)
 
 
 # Creates and names a library, sets it as either STATIC
@@ -44,6 +44,7 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
         android_opencv_mobile
+        jnigraphics
         ${OpenCV_LIBS}
         # Links the target library to the log library
         # included in the NDK.
